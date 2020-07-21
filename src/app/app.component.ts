@@ -13,4 +13,8 @@ export class AppComponent {
   constructor(){
     this.tasks.push({id: 1, description: 'prueba', complete: false});
   }
+  addTask(value: Task): void{
+    this.tasks.push(value);
+    console.log(this.tasks);
+  }
 }

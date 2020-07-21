@@ -1,1 +1,4 @@
-<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+
+<form #taskForm=ngForm (keyup.enter)="guardar(taskForm.value); taskForm.reset() ">
+    <input type="text" class="form-control" placeholder="Añadir tarea"  (keyup.enter)="pressEnter($event)" name="description" ngModel>
+</form>
