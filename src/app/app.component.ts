@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from './models/task';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gestor-tareas';
+  tasks: Task[] = [];
+
+  constructor(){
+    this.tasks.push({id: 1, description: 'prueba', complete: false});
+  }
 }
