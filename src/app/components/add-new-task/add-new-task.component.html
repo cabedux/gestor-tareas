@@ -1,4 +1,10 @@
+<div class="row">
+    <div class="col pl-0">
+        <form #taskForm=ngForm (keyup.enter)="guardar(taskForm.value); taskForm.reset();">
+            <div class="form-group w-100 mb-0">
+                <input type="text" class="form-control" placeholder="Escribir nombre de la tarea y pulsar intro" name="description" ngModel>
+            </div>
+        </form> 
+    </div>
+</div>
 
-<form #taskForm=ngForm (keyup.enter)="guardar(taskForm.value); taskForm.reset() ">
-    <input type="text" class="form-control" placeholder="Añadir tarea"  (keyup.enter)="pressEnter($event)" name="description" ngModel>
-</form>

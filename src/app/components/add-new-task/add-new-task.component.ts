@@ -1,4 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Task } from './../../models/task';
+import { v4 as uuid } from 'uuid';
+import { iif } from 'rxjs';
 
 @Component({
   selector: 'app-add-new-task',
@@ -7,20 +10,22 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AddNewTaskComponent implements OnInit {
 
-  description: string;
 
-  @Output() newTask = new EventEmitter<string>(false);
+  @Output() addNewTask = new EventEmitter<Task>(false);
   constructor() { }
 
   ngOnInit(): void {
   }
-  pressEnter(e: any): void{
-      console.log(e.keyCode);
-  }
-  guardar(value: string): void{
-    this.description = value;
-    this.newTask.emit(value);
-    console.log('guardado');
-    this.description = '';
+  // pressEnter(e: any): void{
+  //     console.log(e.keyCode);
+  // }
+  guardar(value: any): void{
+    if (value.description){
+      const newTask = new Task();
+      newTask.id = uuid();
+      newTask.description = value.description;
+      this.addNewTask.emit(newTask);
+    }
+
   }
 }

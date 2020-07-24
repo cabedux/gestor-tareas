@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Task } from './models/task';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,18 @@ export class AppComponent {
   tasks: Task[] = [];
 
   constructor(){
-    this.tasks.push({id: 1, description: 'prueba', complete: false});
+    const taskTest1 = new Task();
+    taskTest1.id = uuid();
+    taskTest1.description = 'prueba';
+    this.tasks.push(taskTest1);
+
+    const taskTest2 = new Task();
+    taskTest2.id = uuid();
+    taskTest2.description = 'prueba2';
+    taskTest2.complete = true;
+    this.tasks.push(taskTest2);
   }
   addTask(value: Task): void{
     this.tasks.push(value);
-    console.log(this.tasks);
   }
 }

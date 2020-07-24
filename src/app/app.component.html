@@ -1,4 +1,5 @@
 <div class="container">
-  <app-add-new-task (newTask)="addTask($event)"></app-add-new-task>
+  <h1>Gestor de tareas</h1>
+  <app-add-new-task (addNewTask)="addTask($event)"></app-add-new-task>
   <app-task-list [tasks]="tasks"></app-task-list>
 </div>
